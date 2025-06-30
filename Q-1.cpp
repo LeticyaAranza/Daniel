@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -58,8 +59,73 @@ int main() {
     p1. mostrar();
     p2. mostrar();
     
-   
+    cout << "\nCasthing\n";
+     int iVar = 10;
+     double dVar1 = 10 / 4;// dVar = 2.0
+     double dVar2 = (double) 10 / 4;// dVar = 2.5
+     cout << dVar1 << endl;
+     cout << dVar2 << endl;
 
+     cout << "\nLeitura e escrita de arquivo\n\n";
 
+     // Escrita no arquivo.txt
+    ofstream escrita1("arquivo.txt");
+
+    if (escrita1.is_open()) {
+
+        escrita1 << "Gravando isso em um arquivo.\n";
+        escrita1.close();
+
+    } else {
+        cerr << "Nao foi possivel abrir o arquivo" << endl;
+    }
+
+    // Escrita no Arquivo1.txt
+    ofstream escrita2("Arquivo1.txt");
+
+    if (escrita2.is_open()) {
+
+        escrita2 << "gravando";
+        escrita2.close();
+
+    } else {
+        cerr << "Nao abriu (escrita2)." << endl;
+    }
+
+    // Leitura de arquivo.txt
+    string linha;
+
+    ifstream leitura1("arquivo.txt");
+
+    if (leitura1.is_open()) {
+
+        while (getline(leitura1, linha)) {
+            cout << linha << endl;
+        }
+
+        leitura1.close();
+
+    } else {
+        cerr << "Nao abriu (leitura1)" << endl;
+    }
+
+    // Leitura de Arquivo1.txt
+    string linha1;
+    ifstream leitura2("Arquivo1.txt");
+    if (leitura2.is_open()) {
+        while (getline(leitura2, linha1)) {
+            cout << linha1 << endl;
+        }
+        leitura2.close();
+    } else {
+        cerr << "Nao abriu (leitura2)." << endl;
+    }
+
+    string n = "Leticya";
+    cout << n.front()<<endl;
+    cout << n.back()<<endl;
+    cout << n.empty() << endl;
+    cout << n.length()<<endl;
+    
     return 0;
 }
